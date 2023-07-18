@@ -1,12 +1,14 @@
 <template>
-    <nav class="h-[140px] w-full bg-[#35805B] flex justify-between">
+    <nav v-if="$route.meta.isRequireAuth" class="h-[140px] w-full bg-[#35805B] flex justify-between">
         <div class="text-white text-[70px] uppercase font-bold pl-10 py-3 hover:cursor-pointer">
             <span>samsung sds</span>
         </div>
         <div class=" m-0 p-0 flex justify-end">
-            <div class="px-10 pt-[50px] text-white text-4xl font-bold hover:text-red-400 hover:cursor-pointer capitalize">
+            <div class="px-10 pt-[50px] text-white text-4xl font-bold hover:text-red-400 hover:cursor-pointer capitalize"
+                @click="$router.push('/')">
                 Homepage
             </div>
+
             <div class="px-10 pt-[50px] text-white text-4xl font-bold hover:text-red-400 hover:cursor-pointer capitalize">
                 <span class="relative flex" @click="onClickRequest">
                     request management
@@ -71,6 +73,10 @@
                         class="px-3 py-2 leading-[24px] capitalize bg-white text-[#35805B] text-base hover:bg-red-400 rounded-md">
                         setting
                     </div>
+                    <div class="px-3 py-2 leading-[24px] capitalize bg-white text-[#35805B] text-base hover:bg-red-400 rounded-md"
+                        @click="$router.push('/count-date')">
+                        Been Together
+                    </div>
                     <hr>
                     <div
                         class="px-3 py-2 leading-[24px] capitalize bg-white text-[#35805B] text-base hover:bg-red-400  rounded-md">
@@ -78,7 +84,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </nav>
 </template>
@@ -107,6 +112,9 @@ export default {
             this.isShowTemplate = false;
             this.isActive = !this.isActive;
         }
+    },
+    watch: {
+
     }
 }
 </script>
